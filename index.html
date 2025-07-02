@@ -36,7 +36,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         section {
@@ -136,7 +136,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px; /* Spazio per l'header fisso */
+            padding-top: 80px;
         }
 
         .hero-content h1 {
@@ -205,10 +205,49 @@
             text-align: left;
         }
 
+        /* --- Stili Tabella Compatibilità (NUOVO) --- */
+        #compatibility {
+            background-color: var(--dark-bg);
+        }
+
+        #moto-search {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            background-color: var(--dark-surface);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        #moto-search:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .compatibility-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .compatibility-table th, .compatibility-table td {
+            padding: 15px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .compatibility-table thead {
+            background-color: var(--dark-surface);
+        }
+
+        .compatibility-table tbody tr:hover {
+            background-color: #252525;
+        }
 
         /* --- App Comparison Section --- */
         #comparison {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-surface);
         }
 
         .comparison-table {
@@ -222,27 +261,16 @@
             text-align: center;
             border-bottom: 1px solid #333;
         }
-
-        .comparison-table th {
-            font-size: 1.5rem;
-            background-color: var(--dark-surface);
-        }
-        
-        .comparison-table th:first-child {
-            text-align: left;
-            background: none;
-        }
-
-        .comparison-table td:first-child {
-            text-align: left;
-            font-weight: 700;
-        }
         
         .comparison-table td p.feature-description {
             font-size: 0.9rem;
             color: var(--text-medium);
             margin-top: 5px;
             font-weight: 300;
+        }
+        
+        .comparison-table th:first-child, .comparison-table td:first-child {
+            text-align: left;
         }
 
         .comparison-table .check {
@@ -263,10 +291,10 @@
 
         /* --- Pricing Section --- */
         #pricing {
-            background-color: var(--dark-surface);
+            background-color: var(--dark-bg);
         }
         .pricing-box {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-surface);
             padding: 50px;
             border-radius: 15px;
             max-width: 700px;
@@ -307,7 +335,7 @@
 
         /* --- Footer --- */
         .main-footer {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-surface);
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid #2a2a2a;
@@ -332,6 +360,7 @@
             <a href="#" class="logo">CHRONO<span class="highlight">DASH</span></a>
             <nav class="nav-links">
                 <a href="#features">Funzionalità</a>
+                <a href="#compatibility">Compatibilità</a>
                 <a href="#comparison">App Pro</a>
                 <a href="#pricing">Prezzo</a>
             </nav>
@@ -379,84 +408,96 @@
         </div>
     </section>
 
-    <section id="comparison" class="container">
-        <h2 class="text-center">Base per Competere, <span class="highlight">PRO</span> per Vincere</h2>
-        <p class="text-center" style="max-width: 800px; margin: 0 auto 50px auto;">L'app DashTimer è disponibile in due versioni: una Base, gratuita e ricca di funzioni per mettersi alla prova, e una Pro, per chi vuole trasformare i dati in un vantaggio decisivo.</p>
+    <section id="compatibility" class="container">
+        <h2 class="text-center">Verifica la Compatibilità</h2>
+        <p class="text-center" style="max-width: 800px; margin: 0 auto 40px auto;">
+            Usa la barra di ricerca qui sotto per trovare la tua moto. Aggiungiamo nuove compatibilità costantemente!
+        </p>
+        <input type="search" id="moto-search" placeholder="Cerca la tua moto (es. R6, GSX-R 1000, CBR...)">
         
-        <table class="comparison-table">
+        <table class="compatibility-table">
             <thead>
                 <tr>
-                    <th>Funzionalità</th>
-                    <th>Versione Base (Gratuita)</th>
-                    <th>Versione PRO (Abbonamento)</th>
+                    <th>Marca</th>
+                    <th>Modello</th>
+                    <th>Anni di Compatibilità</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Download Sessioni</td>
-                    <td class="check">✓</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td>
-                        Archivio Sessioni
-                    </td>
-                    <td>
-                        Le tue ultime <strong>10 giornate</strong> in pista
-                    </td>
-                    <td class="highlight">
-                        <strong>Archivio Illimitato</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Partecipazione Leaderboard
-                        <p class="feature-description">Confronta il tuo best lap con la community.</p>
-                    </td>
-                    <td class="check">✓</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td>
-                        Competi e Vinci
-                        <p class="feature-description">I Top 3 della classifica mensile vincono un abbonamento Pro. (Sviluppo Futuro)</p>
-                    </td>
-                    <td class="check">✓</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td>
-                        Analisi Telemetria per Giro
-                        <p class="feature-description">Grafici di velocità, accelerazione, frenata per ogni giro.</p>
-                    </td>
-                    <td class="cross">✗</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td>
-                        Confronto Telemetria (Ghost Mode)
-                        <p class="feature-description">Sovrapponi la telemetria vs te stesso, un amico o il miglior pilota sulla leaderboard.</p>
-                    </td>
-                    <td class="cross">✗</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td>
-                        Esportazione Dati Professionale
-                        <p class="feature-description">Esporta in CSV per analisi su RaceRender, Track Attack, etc.</p>
-                    </td>
-                    <td class="cross">✗</td>
-                    <td class="check">✓</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="pro-column">
-                        <p style="margin-bottom: 15px;"><strong>49,99 € / anno</strong></p>
-                    </td>
-                </tr>
+            <tbody id="compatibility-list">
+                <tr><td>Honda</td><td>CBR 600RR</td><td>2017 - 2025</td></tr>
+                <tr><td>Honda</td><td>CBR 1000RR</td><td>2012 - 2025</td></tr>
+                <tr><td>Kawasaki</td><td>Ninja ZX-6R / 636</td><td>2005 - 2025</td></tr>
+                <tr><td>Kawasaki</td><td>Ninja ZX-10R</td><td>2005 - 2025</td></tr>
+                <tr><td>Suzuki</td><td>GSX-R 600</td><td>2011 - 2016</td></tr>
+                <tr><td>Suzuki</td><td>GSX-R 750</td><td>2012 - 2017</td></tr>
+                <tr><td>Suzuki</td><td>GSX-R 1000</td><td>2009 - 2025</td></tr>
+                <tr><td>Triumph</td><td>Daytona 675</td><td>2006 - 2016</td></tr>
+                <tr><td>Triumph</td><td>Street triple</td><td>2007 - 2025</td></tr>
+                <tr><td>Yamaha</td><td>R6</td><td>2006 - 2025</td></tr>
+                <tr><td>Yamaha</td><td>R1</td><td>2006 - 2025</td></tr>
             </tbody>
         </table>
+    </section>
+
+    <section id="comparison">
+        <div class="container">
+            <h2 class="text-center">Base per Competere, <span class="highlight">PRO</span> per Vincere</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px auto;">L'app DashTimer è disponibile in due versioni: una Base, gratuita e ricca di funzioni per mettersi alla prova, e una Pro, per chi vuole trasformare i dati in un vantaggio decisivo.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Funzionalità</th>
+                        <th>Versione Base (Gratuita)</th>
+                        <th>Versione PRO (Abbonamento)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Download Sessioni</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Archivio Sessioni</td>
+                        <td>Le tue ultime <strong>10 giornate</strong> in pista</td>
+                        <td class="highlight"><strong>Archivio Illimitato</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Partecipazione Leaderboard<p class="feature-description">Confronta il tuo best lap con la community.</p></td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Competi e Vinci<p class="feature-description">I Top 3 della classifica mensile vincono un abbonamento Pro. (Sviluppo Futuro)</p></td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Analisi Telemetria per Giro<p class="feature-description">Grafici di velocità, accelerazione, frenata per ogni giro.</p></td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Confronto Telemetria (Ghost Mode)<p class="feature-description">Sovrapponi la telemetria vs te stesso, un amico o il miglior pilota sulla leaderboard.</p></td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Esportazione Dati Professionale<p class="feature-description">Esporta in CSV per analisi su RaceRender, Track Attack, etc.</p></td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="pro-column">
+                            <p style="margin-bottom: 15px;"><strong>49,99 € / anno</strong></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section id="pricing">
@@ -473,7 +514,7 @@
                     <li>Supporto prioritario</li>
                 </ul>
 
-                <p style="margin-bottom: 30px;">Non farti sfuggire questa offerta imperdibile!</p>
+                <p style="margin-bottom: 30px;">Massimizza il valore e abitua l'utente alle funzionalità Pro. Dopo un anno di analisi avanzate, non potrai più farne a meno.</p>
 
                 <a href="#" class="cta-button">Acquista Ora e Risparmia</a>
             </div>
@@ -486,6 +527,22 @@
             <p style="font-size: 0.9rem; color: #777;">Creato con ❤️ e ☕ da Antonello Fraioli</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('moto-search').addEventListener('input', function() {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll('#compatibility-list tr');
+
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
