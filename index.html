@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronodash - Il Tuo Vantaggio in Pista</title>
+    <style>
+        /* --- Reset e Stili Globali --- */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+        :root {
+            --primary-color: #E53935; /* Rosso Accento */
+            --dark-bg: #121212;
+            --dark-surface: #1E1E1E;
+            --text-light: #FFFFFF;
+            --text-medium: #B0B0B0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.8rem; }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        /* --- Bottone CTA --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #F44336;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background-color: rgba(18, 18, 18, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .logo .highlight {
+            font-style: italic;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-image: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; /* Spazio per l'header fisso */
+        }
+
+        .hero-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background-color: var(--dark-surface);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .feature-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- Product Showcase Section --- */
+        #product {
+            background-color: var(--dark-surface);
+        }
+        .product-showcase {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .product-showcase .product-image {
+            flex: 1;
+        }
+
+        .product-showcase .product-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-showcase .product-info {
+            flex: 1;
+        }
+        
+        .product-showcase .product-info h2 {
+            text-align: left;
+        }
+
+
+        /* --- App Comparison Section --- */
+        #comparison {
+            background-color: var(--dark-bg);
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin-top: 50px;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .comparison-table th {
+            font-size: 1.5rem;
+            background-color: var(--dark-surface);
+        }
+        
+        .comparison-table th:first-child {
+            text-align: left;
+            background: none;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+        }
+        
+        .comparison-table td p.feature-description {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        .comparison-table .check {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .comparison-table .cross {
+            color: #757575;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .pro-column .cta-button {
+            margin-top: 20px;
+        }
+
+        /* --- Pricing Section --- */
+        #pricing {
+            background-color: var(--dark-surface);
+        }
+        .pricing-box {
+            background-color: var(--dark-bg);
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(229, 57, 53, 0.3);
+        }
+
+        .pricing-box .price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .pricing-box .price-tagline {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .pricing-box ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pricing-box ul li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-box ul li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: var(--dark-bg);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .product-showcase { flex-direction: column; }
+            .main-header .container { flex-direction: column; gap: 15px; }
+            .comparison-table th, .comparison-table td { padding: 10px; font-size: 0.9rem; }
+            .comparison-table .check, .comparison-table .cross { font-size: 1.2rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">CHRONO<span class="highlight">DASH</span></a>
+            <nav class="nav-links">
+                <a href="#features">Funzionalità</a>
+                <a href="#comparison">App Pro</a>
+                <a href="#pricing">Prezzo</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chronodash: Il Tuo Vantaggio in Pista.</h1>
+            <p>Il primo laptimer GPS 25Hz che si integra con il cruscotto originale della tua moto. Precisione assoluta, zero ingombri.</p>
+            <a href="#pricing" class="cta-button">Scopri l'Offerta di Lancio</a>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2 class="text-center">Progettato per il Pilota Moderno</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">🔌</div>
+                <h3>Integrazione Perfetta</h3>
+                <p>Nessun display esterno. Chronodash invia i dati in tempo reale direttamente sul cruscotto originale della tua moto. Pulizia, eleganza e massima concentrazione sulla guida.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📈</div>
+                <h3>Telemetria Avanzata</h3>
+                <p>Sincronizza le sessioni via Bluetooth e analizza ogni curva con la nostra app. Visualizza traiettorie, punti di frenata e accelerazione su mappa satellitare.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h3>Competizione Social</h3>
+                <p>Confronta i tuoi giri con quelli dei tuoi amici e scala le classifiche di ogni circuito. La versione Pro trasforma ogni sessione in una sfida.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="product">
+        <div class="container product-showcase">
+            <div class="product-info">
+                <h2>Hardware Potente, Software Intelligente.</h2>
+                <p>Abbiamo unito un ricevitore GPS a 25Hz, lo standard per la precisione nel motorsport, a un'applicazione mobile potente e intuitiva. Il dispositivo si installa in pochi minuti e si connette via Bluetooth Low Energy al tuo smartphone. L'app trasforma i dati grezzi in analisi comparative e insight preziosi per limare decimi preziosi a ogni giro.</p>
+            </div>
+            <div class="product-image">
+                <img src="https://storage.googleapis.com/gemini-prod/images/8858348a-6625-4672-9cc9-5a50e93297a7" alt="Dispositivo Chronodash e App mobile">
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="container">
+        <h2 class="text-center">Base per Competere, <span class="highlight">PRO</span> per Vincere</h2>
+        <p class="text-center" style="max-width: 800px; margin: 0 auto 50px auto;">L'app DashTimer è disponibile in due versioni: una Base, gratuita e ricca di funzioni per mettersi alla prova, e una Pro, per chi vuole trasformare i dati in un vantaggio decisivo.</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Funzionalità</th>
+                    <th>Versione Base (Gratuita)</th>
+                    <th>Versione PRO (Abbonamento)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Download Sessioni</td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td>
+                        Archivio Sessioni
+                    </td>
+                    <td>
+                        Le tue ultime <strong>10 giornate</strong> in pista
+                    </td>
+                    <td class="highlight">
+                        <strong>Archivio Illimitato</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Partecipazione Leaderboard
+                        <p class="feature-description">Confronta il tuo best lap con la community.</p>
+                    </td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td>
+                        Competi e Vinci
+                        <p class="feature-description">I Top 3 della classifica mensile vincono un abbonamento Pro. (Sviluppo Futuro)</p>
+                    </td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td>
+                        Analisi Telemetria per Giro
+                        <p class="feature-description">Grafici di velocità, accelerazione, frenata per ogni giro.</p>
+                    </td>
+                    <td class="cross">✗</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td>
+                        Confronto Telemetria (Ghost Mode)
+                        <p class="feature-description">Sovrapponi la telemetria vs te stesso, un amico o il miglior pilota sulla leaderboard.</p>
+                    </td>
+                    <td class="cross">✗</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td>
+                        Esportazione Dati Professionale
+                        <p class="feature-description">Esporta in CSV per analisi su RaceRender, Track Attack, etc.</p>
+                    </td>
+                    <td class="cross">✗</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="pro-column">
+                        <p style="margin-bottom: 15px;"><strong>49,99 € / anno</strong></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="pricing">
+        <div class="container text-center">
+            <div class="pricing-box">
+                <h2>Offerta di Lancio <span class="highlight">Esclusiva</span></h2>
+                <div class="price">299 €</div>
+                <p class="price-tagline">Invece di 329 €</p>
+                
+                <ul>
+                    <li>Dispositivo Laptimer Chronodash (GPS 25Hz)</li>
+                    <li><strong>1 Anno di Abbonamento DashTimer Pro INCLUSO</strong></li>
+                    <li>Garanzia di 2 anni</li>
+                    <li>Supporto prioritario</li>
+                </ul>
+
+                <p style="margin-bottom: 30px;">Massimizza il valore e abitua l'utente alle funzionalità Pro. Dopo un anno di analisi avanzate, non potrai più farne a meno.</p>
+
+                <a href="#" class="cta-button">Acquista Ora e Risparmia</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Chronodash. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.9rem; color: #777;">Creato con ❤️ e ☕ da Antonello Fraioli</p>
+        </div>
+    </footer>
+
+</body>
+</html>
