@@ -1,110 +1,137 @@
 [
   {
     "brand": "Aprilia",
-    "model": "RSV 1000 (2002+)"
+    "model": "RSV 1000 (2002+)",
+    "displacement": 998
   },
   {
     "brand": "Aprilia",
-    "model": "RSV4"
+    "model": "RSV4 (2009+)",
+    "displacement": 1099
   },
   {
     "brand": "Aprilia",
-    "model": "RS 660"
+    "model": "RS 660 (2020+)",
+    "displacement": 659
   },
   {
     "brand": "BMW",
-    "model": "S 1000 RR"
+    "model": "S 1000 RR (2009+)",
+    "displacement": 999
   },
   {
     "brand": "Ducati",
-    "model": "749R"
+    "model": "749R (2004-2007)",
+    "displacement": 749
   },
   {
     "brand": "Ducati",
-    "model": "999R"
+    "model": "999R (2002-2006)",
+    "displacement": 999
   },
   {
     "brand": "Ducati",
-    "model": "848"
+    "model": "848 (2007-2014)",
+    "displacement": 849
   },
   {
     "brand": "Ducati",
-    "model": "1098"
+    "model": "1098 (2006-2009)",
+    "displacement": 1099
   },
   {
     "brand": "Ducati",
-    "model": "1198"
+    "model": "1198 (2009-2012)",
+    "displacement": 1198
   },
   {
     "brand": "Ducati",
-    "model": "899 Panigale"
+    "model": "899 Panigale (2013-2015)",
+    "displacement": 898
   },
   {
     "brand": "Ducati",
-    "model": "1199 Panigale"
+    "model": "1199 Panigale (2012-2015)",
+    "displacement": 1198
   },
   {
     "brand": "Ducati",
-    "model": "1299 Panigale"
+    "model": "1299 Panigale (2014-2017)",
+    "displacement": 1285
   },
   {
     "brand": "Ducati",
-    "model": "959"
+    "model": "959 (2015-2017)",
+    "displacement": 955
   },
   {
     "brand": "Ducati",
-    "model": "Supersport"
+    "model": "Supersport (2016+)",
+    "displacement": 937
   },
   {
     "brand": "Ducati",
-    "model": "V4)"
+    "model": "V4 (2017-2024)",
+    "displacement": 1103
   },
   {
     "brand": "Honda",
-    "model": "CBR 600RR"
+    "model": "CBR 600RR (2017+)",
+    "displacement": 599
   },
   {
     "brand": "Honda",
-    "model": "CBR 1000RR"
+    "model": "CBR 1000RR (2012+)",
+    "displacement": 999
   },
   {
     "brand": "Kawasaki",
-    "model": "Ninja ZX-6R / 636"
+    "model": "Ninja ZX-6R / 636 (2005+)",
+    "displacement": 636
   },
   {
     "brand": "Kawasaki",
-    "model": "Ninja ZX-10R"
+    "model": "Ninja ZX-10R (2005+)",
+    "displacement": 998
   },
   {
     "brand": "KTM",
-    "model": "1190 RC8 R"
+    "model": "1190 RC8 R (2009-2016)",
+    "displacement": 1195
   },
   {
     "brand": "Suzuki",
-    "model": "GSX-R 600"
+    "model": "GSX-R 600 (2011-2016)",
+    "displacement": 599
   },
   {
     "brand": "Suzuki",
-    "model": "GSX-R 750"
+    "model": "GSX-R 750 (2012-2017)",
+    "displacement": 750
   },
   {
     "brand": "Suzuki",
-    "model": "GSX-R 1000"
+    "model": "GSX-R 1000 (2009+)",
+    "displacement": 999
   },
   {
     "brand": "Triumph",
-    "model": "Daytona 675"
+    "model": "Daytona 675 (2006-2016)",
+    "displacement": 675
   },
   {
     "brand": "Triumph",
-    "model": "Street Triple"
+    "model": "Street Triple (2007+)",
+    "displacement": 765
   },
   {
     "brand": "Yamaha",
-    "model": "R6"
+    "model": "R6 (2006+)",
+    "displacement": 599
   },
   {
     "brand": "Yamaha",
-    "model": "R1"
+    "model": "R1 (2006+)",
+    "displacement": 998
   }
 ]
